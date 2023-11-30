@@ -59,7 +59,6 @@ end
 -- @return pandoc.RawInline or nil: Either a RawInline element with HTML/LaTeX references or nil. 
 function references_generator(word)
     if table_contains(figref_table, word) then
-        print(FORMAT)
         local referenceNumber = find_index(word, figref_table)
         if FORMAT:match "html" then
             return pandoc.RawInline('html', '<a href="#'..word..'">'..referenceNumber..'</a>')
